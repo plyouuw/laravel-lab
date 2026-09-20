@@ -1,0 +1,8 @@
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 48px;
+    font-weight: bold;
+    text-decoration: dotted;
+    color: red;
+    margin: auto auto;
+}
