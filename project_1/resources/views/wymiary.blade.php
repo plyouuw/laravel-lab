@@ -26,7 +26,7 @@
                         Brak wymaganych wymiarów w żądaniu.
                     @else
                         @php($pojemnosc = $wysokosc * $szerokosc * $glebokosc)
-                        Prostopadłościan o wymiarach {!! $wysokosc !!} × {!! $szerokosc !!} × {!! $glebokosc !!} ma pojemność {!! $pojemnosc !!} m<sup>3</sup>.
+                        Prostopadłościan o wymiarach {$wysokosc} × {$szerokosc} × {$glebokosc} ma pojemność {$pojemnosc} m<sup>3</sup>.
                     @endif
                 </h1>
             </main>
