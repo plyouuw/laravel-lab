@@ -41,6 +41,11 @@
                         </div>
                         <br>
                         <div>
+                            <label for="author">Autor:</label>
+                            <input type="text" id="author" name="author" value="{{ old('author') }}" required>
+                        </div>
+                        <br>
+                        <div>
                             <label for="year">Rok wydania:</label>
                             <input type="number" id="year" name="year" value="{{ old('year') }}">
                         </div>

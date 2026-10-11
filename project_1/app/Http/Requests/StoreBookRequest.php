@@ -23,6 +23,7 @@ class StoreBookRequest extends FormRequest
                 'max:255',
                 Rule::unique('books', 'title')->ignore($this->book?->id),
             ],
+            'author' => ['required', 'string', 'max:120'],
             'year' => ['nullable', 'integer', 'between:1000,' . (date('Y') + 1)],
             'category' => ['nullable', 'string', 'max:100'],
             'description' => ['nullable', 'string'],
@@ -34,6 +35,7 @@ class StoreBookRequest extends FormRequest
     {
         return [
             'title' => 'tytuł książki',
+            'author' => 'autor książki',
             'year' => 'rok wydania',
             'category' => 'kategoria',
             'description' => 'opis książki',

@@ -41,6 +41,7 @@ class BookController extends Controller
 
         Book::create([
             'title' => $title,
+            'author' => $request->input('author'),
             'year' => $request->input('year'),
             'category' => $request->input('category'),
             'description' => $request->input('description'),
@@ -52,18 +53,21 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
+
+        $this->checkAdmin();
         return view('books.edit', compact('book'));
     }
 
     public function update(StoreBookRequest $request, Book $book)
     {
-        $book->update($request->validated());
+        $this->checkAdmin();
 
         return redirect()->route('books.index')->with('status', 'Książka została zaktualizowana!');
     }
 
     public function delete(Book $book)
     {
+        $this->checkAdmin();
         $book->delete();
 
         return redirect()->route('books.index')->with('status', 'Książka została usunięta!');

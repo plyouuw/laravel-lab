@@ -56,7 +56,7 @@
                         @forelse ($books as $book)
                             <li style="margin-bottom: 10px;">
                                 <strong>{{ $book->title }}</strong> - {{ $book->author }} ({{ $book->year ?? 'brak roku' }})
-
+                                @if (session('is_admin'))
                                 &nbsp;|&nbsp;
                                 <a href="{{ route('books.edit', $book) }}">Modyfikuj pozycję</a>
                                 &nbsp;|&nbsp;
@@ -65,6 +65,7 @@
                                     @method('DELETE')
                                     <button type="submit">Usuń pozycję</button>
                                 </form>
+                                @endif
                             </li>
                         @empty
                             <li>Brak książek w bazie.</li>
