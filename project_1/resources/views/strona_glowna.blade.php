@@ -17,6 +17,12 @@
                     Welcome
                 </a>
             @endif
+            @if (Route::has('witaj'))
+                <br />
+                <a href="{{ route('witaj') }}">
+                    Witaj
+                </a>
+            @endif
             @if (Route::has('user.show'))
                 <br />
                 <a href="{{ route('user.show', ['user_id' => 'test']) }}">
