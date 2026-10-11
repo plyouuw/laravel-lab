@@ -52,27 +52,21 @@ class BookController extends Controller
 
     public function edit(Book $book)
     {
-        $this->checkAdmin();
-
         return view('books.edit', compact('book'));
     }
 
     public function update(StoreBookRequest $request, Book $book)
     {
-        $this->checkAdmin();
-
         $book->update($request->validated());
 
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->with('status', 'Książka została zaktualizowana!');
     }
 
     public function delete(Book $book)
     {
-        $this->checkAdmin();
-
         $book->delete();
 
-        return redirect()->route('books.index');
+        return redirect()->route('books.index')->with('status', 'Książka została usunięta!');
     }
 
     public function adminLogin(Request $request)
