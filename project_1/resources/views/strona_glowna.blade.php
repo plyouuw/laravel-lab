@@ -6,7 +6,7 @@
 
         <title>{{ config('app.name', 'app_name') }}</title>
 
-        <link rel="stylesheet" href="{{ asset('/css/style.css') }}"
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
     </head>
     <body>
@@ -39,6 +39,12 @@
                 <br />
                 <a href="{{ route('wymiary', ['wysokosc' => 1, 'szerokosc' => 2, 'glebokosc' => 3]) }}">
                     Oblicz pojemność prostopadłościanu 1cm x 2cm x 3cm
+                </a>
+            @endif
+            @if (Route::has('books.index'))
+                <br />
+                <a href="{{ route('books.index') }}">
+                    Księgarnia
                 </a>
             @endif
             </nav>

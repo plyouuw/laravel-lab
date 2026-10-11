@@ -6,7 +6,7 @@
 
         <title>{{ config('app.name', 'app_name') }}</title>
 
-        <link rel="stylesheet" href="{{ asset('/css/style.css') }}"
+        <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 
     </head>
     <body style="background-color: yellow;">

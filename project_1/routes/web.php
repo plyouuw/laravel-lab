@@ -37,11 +37,12 @@ Route::get('/wymiary/{wysokosc?}/{szerokosc?}/{glebokosc?}', function ($wysokosc
 })->name('wymiary');
 
 use App\Http\Controllers\BookController;
-Route::post('/books', [BookController::class, 'store']);
-Route::get('/books', [BookController::class, 'index']);
-Route::get('/books/create', [BookController::class, 'create']);
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
+Route::get('/books/create', [BookController::class, 'create'])->name('books.create');
+Route::post('/books', [BookController::class, 'store'])->name('books.store');
+Route::get('/books/{book}/edit', [BookController::class, 'edit'])->name('books.edit');
+Route::put('/books/{book}', [BookController::class, 'update'])->name('books.update');
+Route::delete('/books/{book}', [BookController::class, 'delete'])->name('books.delete');
 
-// Zdefiniuj w pliku routes/web.php trasy HTTP:
-// Trasy typu GET pod adresem /books/create, wywołującej metodę create kontrolera BookController, zwracającej widok z pliku resources/views/books/create.blade.php.
-// Trasy typu POST pod adresem /books, wywołującej metodę store kontrolera BookController.
-// Trasy typu GET pod adresem /books, wywołującej metodę index kontrolera BookController, zwracającej widok z pliku resources/views/books/index.blade.php.
+Route::post('/admin/login', [BookController::class, 'adminLogin'])->name('admin.login');
+Route::post('/admin/logout', [BookController::class, 'adminLogout'])->name('admin.logout');
