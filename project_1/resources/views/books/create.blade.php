@@ -41,13 +41,30 @@
                         </div>
                         <br>
                         <div>
-                            <label for="author">Autor:</label>
-                            <input type="text" id="author" name="author" value="{{ old('author') }}" required>
+                            <label for="year">Rok wydania:</label>
+                            <input type="number" id="year" name="year" value="{{ old('year') }}">
                         </div>
                         <br>
                         <div>
-                            <label for="year">Rok wydania:</label>
-                            <input type="number" id="year" name="year" value="{{ old('year') }}">
+                            <label for="category">Kategoria:</label>
+                            <select id="category" name="category">
+                                <option value="Literatura piękna" {{ old('category') == 'Literatura piękna' ? 'selected' : '' }}>Literatura piękna</option>
+                                <option value="Sci-Fi / Fantasy" {{ old('category') == 'Sci-Fi / Fantasy' ? 'selected' : '' }}>Sci-Fi / Fantasy</option>
+                                <option value="Biografie" {{ old('category') == 'Biografie' ? 'selected' : '' }}>Biografie</option>
+                                <option value="Naukowe" {{ old('category') == 'Naukowe' ? 'selected' : '' }}>Naukowe</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="description">Opis książki:</label><br>
+                            <textarea id="description" name="description" rows="4" cols="50">{{ old('description') }}</textarea>
+                        </div>
+                        <br>
+                        <div>
+                            <label>
+                                <input type="checkbox" id="is_available" name="is_available" value="1" {{ old('is_available') ? 'checked' : '' }}>
+                                Dostępność w bibliotece
+                            </label>
                         </div>
                         <br>
                         <button type="submit">Zapisz książkę</button>

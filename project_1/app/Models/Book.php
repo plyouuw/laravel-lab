@@ -13,6 +13,13 @@ class Book extends Model
         'title',
         'author',
         'year',
+        'category',
+        'description',
+        'is_available',
+    ];
+
+    protected $casts = [
+        'is_available' => 'boolean',
     ];
 }
 

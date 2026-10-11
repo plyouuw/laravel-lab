@@ -28,9 +28,24 @@ class BookController extends Controller
         return view('books.create');
     }
 
-    public function store(StoreBookRequest $request)
+    public function store(Request $request)
     {
-        Book::create($request->validated());
+        // 1. Pobierz pojedynczą wartość dla pola title:
+        $title = $request->input('title');
+
+        // 2. Pobierz pełną tablicę wszystkich przesłanych pól:
+        $all = $request->all();
+
+        // 3. Pobierz wyłącznie podzbiór pól obejmujący title oraz category:
+        $subset = $request->only(['title', 'category']);
+
+        Book::create([
+            'title' => $title,
+            'year' => $request->input('year'),
+            'category' => $request->input('category'),
+            'description' => $request->input('description'),
+            'is_available' => $request->boolean('is_available'),
+        ]);
 
         return redirect()->route('books.index')->with('status', 'Nowa książka została dodana!');
     }

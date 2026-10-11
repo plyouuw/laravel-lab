@@ -61,7 +61,7 @@
                                     &nbsp;|&nbsp;
                                     <a href="{{ route('books.edit', $book) }}">Modyfikuj pozycję</a>
                                     &nbsp;|&nbsp;
-                                    <form action="{{ route('books.destroy', $book) }}" method="POST" style="display: inline;" onsubmit="return confirm('Czy na pewno chcesz usunąć tę pozycję?');">
+                                    <form action="{{ route('books.delete', $book) }}" method="POST" style="display: inline;" onsubmit="return confirm('Czy na pewno chcesz usunąć tę pozycję?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit">Usuń pozycję</button>
