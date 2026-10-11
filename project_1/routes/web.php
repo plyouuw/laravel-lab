@@ -35,3 +35,13 @@ Route::get('/wymiary/{wysokosc?}/{szerokosc?}/{glebokosc?}', function ($wysokosc
         'glebokosc' => $glebokosc
     ]);
 })->name('wymiary');
+
+use App\Http\Controllers\BookController;
+Route::post('/books', [BookController::class, 'store']);
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/create', [BookController::class, 'create']);
+
+// Zdefiniuj w pliku routes/web.php trasy HTTP:
+// Trasy typu GET pod adresem /books/create, wywołującej metodę create kontrolera BookController, zwracającej widok z pliku resources/views/books/create.blade.php.
+// Trasy typu POST pod adresem /books, wywołującej metodę store kontrolera BookController.
+// Trasy typu GET pod adresem /books, wywołującej metodę index kontrolera BookController, zwracającej widok z pliku resources/views/books/index.blade.php.
