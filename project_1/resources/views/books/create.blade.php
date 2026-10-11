@@ -34,6 +34,7 @@
                     @endif
 
                     <form action="/books" method="POST">
+                        @csrf
                         <div>
                             <label for="title">Tytuł:</label>
                             <input type="text" id="title" name="title" value="{{ old('title') }}" required>
